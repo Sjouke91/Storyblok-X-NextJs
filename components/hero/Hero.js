@@ -3,7 +3,6 @@ import Image from 'next/image';
 
 export default function Hero({ blok }) {
   const { title, subtitle, image, button } = blok;
-  console.log(button);
   return (
     <section
       {...storyblokEditable(blok)}
