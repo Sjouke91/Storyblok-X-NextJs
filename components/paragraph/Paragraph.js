@@ -1,6 +1,6 @@
 import { useButtonSelector } from '@/utils/useButtonSelector';
 import { useRichText } from '@/utils/useRichText';
-import { storyblokEditable } from '@storyblok/react';
+import { StoryblokComponent, storyblokEditable } from '@storyblok/react';
 import Image from 'next/image';
 
 export default function Paragraph({ blok }) {
@@ -14,12 +14,6 @@ export default function Paragraph({ blok }) {
     button,
   } = blok;
   const parsedBodyText = useRichText(bodyText);
-  const parsedButton = useButtonSelector({
-    buttonData: button ? button[0] : null,
-    className: `c-paragraph__button show-as-button ${
-      button?.length ? button[0].type : null
-    }`,
-  });
 
   return (
     <section
@@ -41,7 +35,15 @@ export default function Paragraph({ blok }) {
           {parsedBodyText ? (
             <div className='c-paragraph__body-text'>{parsedBodyText} </div>
           ) : null}
-          {parsedButton}
+          {button?.length
+            ? button.map((nestedBlok) => (
+                <StoryblokComponent
+                  blok={nestedBlok}
+                  key={nestedBlok._uid}
+                  className='c-hero__button'
+                />
+              ))
+            : null}
         </div>
         {image ? (
           <div

@@ -8,6 +8,8 @@ import Config from '@/components/config/Config';
 import Layout from '@/components/Layout';
 import HeaderMenu from '@/components/header-menu/HeaderMenu';
 import MenuLink from '@/components/header-menu/MenuLink';
+import Button from '@/components/button/Button';
+
 import '../theme/main.scss';
 
 const components = {
@@ -15,11 +17,12 @@ const components = {
   layout: Layout,
   config: Config,
   headerMenu: HeaderMenu,
-  Hero: Hero,
-  Paragraph: Paragraph,
+  hero: Hero,
+  paragraph: Paragraph,
   menuLink: MenuLink,
   listItemBlock: ListItemBlock,
   listItem: ListItem,
+  button: Button,
 };
 
 storyblokInit({
