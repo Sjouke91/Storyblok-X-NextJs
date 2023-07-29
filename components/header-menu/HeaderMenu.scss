@@ -1,0 +1,26 @@
+.c-header-menu {
+  &__outer-wrapper {
+    padding: 0;
+  }
+  &__inner-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  &__menu-container {
+    display: flex;
+    margin: 0;
+    margin-left: auto;
+    height: 100%;
+  }
+  &__menu-link {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 32px;
+    cursor: pointer;
+    &:hover {
+      color: $c-primary !important;
+    }
+  }
+}

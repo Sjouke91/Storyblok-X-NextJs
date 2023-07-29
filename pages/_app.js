@@ -1,17 +1,25 @@
 import { storyblokInit, apiPlugin } from '@storyblok/react';
-import Hero from '../components/Hero';
-import Paragraph from '../components/Paragraph';
-import Page from '../components/Page';
-import ListItemBlock from '@/components/ListItemBlock';
-import ListItem from '@/components/ListItem';
+import Hero from '../components/hero/Hero';
+import Paragraph from '../components/paragraph/Paragraph';
+import Page from '../components/page/Page';
+import ListItem from '@/components/list-item-block/ListItem';
+import ListItemBlock from '@/components/list-item-block/ListItemBlock';
+import Config from '@/components/config/Config';
+import Layout from '@/components/Layout';
+import HeaderMenu from '@/components/header-menu/HeaderMenu';
+import MenuLink from '@/components/header-menu/MenuLink';
 import '../theme/main.scss';
 
 const components = {
+  page: Page,
+  layout: Layout,
+  config: Config,
+  headerMenu: HeaderMenu,
   Hero: Hero,
   Paragraph: Paragraph,
+  menuLink: MenuLink,
   listItemBlock: ListItemBlock,
   listItem: ListItem,
-  page: Page,
 };
 
 storyblokInit({
@@ -24,7 +32,11 @@ storyblokInit({
 });
 
 const MyApp = ({ Component, pageProps, auth }) => {
-  return <Component {...pageProps} />;
+  return (
+    <Layout story={pageProps.config}>
+      <Component {...pageProps} />
+    </Layout>
+  );
 };
 
 export default MyApp;

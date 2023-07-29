@@ -141,22 +141,21 @@ ol {
   margin-bottom: 2em;
 }
 
-a:not(.show-as-button) {
-  color: $c-secondary;
+a:not(.show-as-button):not(.menu-link) {
+  color: $c-white;
+  text-decoration: none !important;
+
   &:visited {
+    // color: $c-primary;
+  }
+  &:hover {
     color: $c-primary;
   }
-  &:hover {
-    color: $c-text;
-  }
   &:active {
-    color: $c-text;
+    // color: $c-primary;
   }
   &:link {
-    color: $c-text;
-  }
-  &:hover {
-    text-decoration: underline;
+    // color: $c-primary;
   }
 }
 

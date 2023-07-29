@@ -15,7 +15,7 @@
 
     &.primary {
       background-color: $c-background-primary;
-      *:not(.show-as-button) {
+      *:not(.show-as-button):not(a) {
         color: $c-text-inverse;
       }
     }

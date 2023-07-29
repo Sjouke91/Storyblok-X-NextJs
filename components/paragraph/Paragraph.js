@@ -21,7 +21,6 @@ export default function Paragraph({ blok }) {
     }`,
   });
 
-  console.log({ blok });
   return (
     <section
       {...storyblokEditable(blok)}
@@ -44,17 +43,19 @@ export default function Paragraph({ blok }) {
           ) : null}
           {parsedButton}
         </div>
-        <div
-          className={`c-paragraph__image-container image-container ${imagePosition}`}
-        >
-          <Image
-            className='c-paragraph__image image'
-            width='500'
-            height='500'
-            src={image.filename}
-            alt={image.alt ? image.alt : 'paragraph image'}
-          />
-        </div>
+        {image ? (
+          <div
+            className={`c-paragraph__image-container image-container ${imagePosition}`}
+          >
+            <Image
+              className='c-paragraph__image image'
+              width='500'
+              height='500'
+              src={image.filename}
+              alt={image.alt ? image.alt : 'paragraph image'}
+            />
+          </div>
+        ) : null}
       </div>
     </section>
   );

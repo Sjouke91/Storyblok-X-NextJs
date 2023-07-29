@@ -1,21 +1,16 @@
 import React, { Fragment } from 'react';
 import { StoryblokComponent, getStoryblokApi } from '@storyblok/react';
-import Page from '@/components/Page';
+import Page from '@/components/page/Page';
 import Head from 'next/head';
+import Link from 'next/link';
 
-function Home({ story }) {
+export default function Home({ story, config }) {
   return (
-    <div>
-      <Head>
-        <title>Create Next App</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+    <>
       <StoryblokComponent blok={story.content} />
-    </div>
+    </>
   );
 }
-
-export default Home;
 
 export async function getStaticPaths() {
   const paths = [
@@ -50,12 +45,21 @@ export async function getStaticProps(params) {
   };
 
   const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+  let { data: pageData } = await storyblokApi.get(
+    `cdn/stories/${slug}`,
+    sbParams
+  );
+
+  const { data: configData } = await storyblokApi.get('cdn/stories/config', {
+    version: 'draft',
+    resolve_links: 'url',
+  });
 
   return {
     props: {
-      story: data ? data.story : false,
-      key: data ? data.story.id : false,
+      story: pageData ? pageData.story : false,
+      config: configData ? configData.story : false,
+      key: pageData ? pageData.story.id : false,
     },
     revalidate: 3600, // revalidate every hour
   };
