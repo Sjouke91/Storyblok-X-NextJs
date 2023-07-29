@@ -1,0 +1,38 @@
+@import '../abstracts';
+
+// ===========================================================================
+// ELEMENT COLORS
+// ===========================================================================
+
+body {
+  background-color: $c-white;
+}
+
+//STICKY HEADER
+.c-sticky-header {
+  &__outer-wrapper {
+    background-color: $c-primary;
+    *:not(button):not(.show-as-button):not(.text-high-light, button):not(
+        .show-as-button
+      ) {
+      color: white !important;
+    }
+    svg {
+      path {
+        fill: $c-black;
+      }
+    }
+  }
+}
+
+//RECRUITER BLOCK
+.c-recruiter-block {
+  &__outer-wrapper {
+    background-color: #ccc;
+    *:not(button):not(.show-as-button):not(.text-high-light, button):not(
+        .show-as-button
+      ) {
+      color: $c-black;
+    }
+  }
+}

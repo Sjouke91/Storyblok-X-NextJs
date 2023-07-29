@@ -1,0 +1,88 @@
+@import '../abstracts';
+
+// ===========================================================================
+// Buttons
+// ===========================================================================
+
+button,
+.show-as-button {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: fit-content;
+
+  //PRIMARY STYLING
+  &.primary {
+    background-color: $c-primary;
+    color: $c-white;
+    padding: 14px 24px;
+    border: 2px solid transparent;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: $c-button-secondary;
+      border: 2px solid $c-primary;
+      color: $c-primary;
+    }
+  }
+
+  //SECONDARY STYLING
+  &.secondary {
+    background-color: transparent;
+    border-radius: unset;
+    color: $c-text-inverse;
+    border: 2px solid $c-white;
+    padding: 16px 24px;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $c-text;
+      background-color: $c-button-secondary;
+    }
+  }
+
+  //SHOW AS LINK STYLING
+  &.link {
+    background-color: unset;
+    color: $c-text;
+    padding: 15px 0px;
+    font-size: 14px;
+    &:hover {
+      color: $c-primary;
+    }
+  }
+  &.nav-link {
+    background-color: unset;
+    color: $c-text-inverse;
+    white-space: nowrap;
+    &:hover {
+      color: $c-primary;
+    }
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: $grid-gap;
+
+  &.align-center {
+    justify-content: center;
+  }
+  &.align-right {
+    justify-content: flex-end;
+  }
+
+  @media (max-width: $bp-mobile) {
+    flex-direction: column;
+  }
+  @media (max-width: $bp-tablet) {
+    gap: $grid-gap-mobile;
+  }
+}

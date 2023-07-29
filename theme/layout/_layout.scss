@@ -1,0 +1,95 @@
+@import '../abstracts/';
+
+// ===========================================================================
+// LAYOUT STYLES
+// ===========================================================================
+
+.outer-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: $section-padding;
+
+  &.background {
+    background-color: $c-background-secondary;
+
+    &.primary {
+      background-color: $c-background-primary;
+      *:not(.show-as-button) {
+        color: $c-text-inverse;
+      }
+    }
+    &.secondary {
+      background-color: $c-background-secondary;
+    }
+  }
+  @media (max-width: $bp-mobile) {
+    padding: $section-padding-mobile;
+  }
+}
+
+.inner-wrapper {
+  width: 100%;
+  max-width: $content-width;
+}
+
+.grid-container {
+  display: grid;
+  gap: $grid-gap;
+
+  &.two-columns {
+    grid-template-columns: 1fr 1fr;
+    @media (max-width: $bp-mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &.three-columns {
+    grid-template-columns: 1fr 1fr 1fr;
+    @media (max-width: $bp-tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: $bp-mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &.four-columns {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  &.five-columns {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  &.six-columns {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  &.four-columns,
+  &.five-columns,
+  &.six-columns {
+    @media (max-width: $bp-desktop) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    @media (max-width: $bp-laptop) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (max-width: $bp-tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: $bp-mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.arrow {
+  width: 100%;
+  @media (max-width: $bp-tablet) {
+    display: none;
+  }
+}
+
+.image {
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  width: auto;
+}

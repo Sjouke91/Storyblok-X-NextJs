@@ -1,0 +1,47 @@
+@import '../abstracts';
+
+// ===========================================================================
+// UI ELEMENTS
+// ===========================================================================
+
+select {
+  border: 1px solid #d0d5dd;
+  padding: 0 1em;
+  background-color: $c-white;
+  color: $c-text;
+  padding: 0 1em;
+
+  &:focus-visible {
+    outline: none;
+    border: 2px solid $c-primary;
+  }
+  border-radius: none !important;
+  height: 3em !important;
+}
+
+.tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 15px;
+  background-color: $c-secondary;
+  border-radius: 20px;
+  p {
+    margin: 0;
+  }
+}
+
+// a[href^='tel:'] {
+//   &::before {
+//     content: url(/phone_icon.svg);
+//     margin-right: 8px;
+//     margin-top: 8px;
+//   }
+// }
+// a[href^='mailto:'] {
+//   &::before {
+//     content: url(/email_icon.svg);
+//     margin-right: 8px;
+//     margin-top: 8px;
+//   }
+// }

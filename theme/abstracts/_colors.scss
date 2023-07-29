@@ -1,0 +1,28 @@
+// ===========================================================================
+// COLOR VARIABLES
+// ===========================================================================
+
+$c-error: red;
+$c-warning: yellow;
+$c-success: green;
+$c-black: #000;
+$c-white: #fff;
+$c-grey: #707070;
+
+$c-primary: #029801;
+$c-secondary: #e6efe6;
+$c-tertiary: #faf8f3;
+$c-quaternary: #406040;
+
+$c-text: $c-quaternary;
+$c-text-inverse: $c-white;
+$c-text-high-light: $c-secondary;
+
+$c-button-primary: $c-secondary;
+$c-button-secondary: $c-white;
+
+$c-background-primary: $c-black;
+$c-background-secondary: $c-secondary;
+
+$c-scrollbar-background: #023865;
+$c-scrollbar-slider: #3dafec;

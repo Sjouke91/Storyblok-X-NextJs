@@ -1,42 +1,16 @@
 import React, { Fragment } from 'react';
-import { getStoryblokApi } from '@storyblok/react';
-import HeroSection from '@/components/HeroSection';
-import TextSection from '@/components/TextSection';
+import { StoryblokComponent, getStoryblokApi } from '@storyblok/react';
+import Page from '@/components/Page';
+import Head from 'next/head';
 
-function Home(props) {
-  const components = props.story.content.body;
-  console.log(props);
+function Home({ story }) {
   return (
-    <div className='c-home-page'>
-      {components?.length
-        ? components.map((c) => {
-            switch (c.component) {
-              case 'hero-section':
-                return (
-                  <Fragment key={c._uid}>
-                    <HeroSection data={c} />{' '}
-                  </Fragment>
-                );
-                break;
-
-              case 'text-section':
-                return (
-                  <Fragment key={c._uid}>
-                    <TextSection data={c} />
-                  </Fragment>
-                );
-                break;
-
-              default:
-                return (
-                  <Fragment key={c._uid}>
-                    <h1>{c.component}</h1>
-                  </Fragment>
-                );
-                break;
-            }
-          })
-        : null}
+    <div>
+      <Head>
+        <title>Create Next App</title>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+      <StoryblokComponent blok={story.content} />
     </div>
   );
 }
@@ -63,7 +37,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(params) {
-  console.log(params);
   // home is the default slug for the homepage in Storyblok
   let slug;
   if (!params.params.urlPath) {

@@ -1,0 +1,48 @@
+.c-hero {
+  &__outer-wrapper {
+    position: relative;
+    min-height: 600px;
+    padding: 0;
+  }
+  &__inner-wrapper {
+    display: flex;
+    flex-direction: row;
+    @media (max-width: $bp-mobile) {
+      flex-direction: column;
+    }
+  }
+  &__image-container {
+    height: 100%;
+    max-width: 60%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    mask-image: url(/hero_clippath.svg);
+
+    @media (max-width: $bp-mobile) {
+      order: 1;
+      position: unset;
+      height: 356px;
+      max-width: unset;
+      mask-image: url(/hero_clippath_mobile.svg);
+    }
+  }
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 70%;
+    gap: 16px;
+    padding: 40px 16px;
+
+    @media (max-width: $bp-mobile) {
+      order: 2;
+
+      max-width: 100%;
+    }
+  }
+}
